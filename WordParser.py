@@ -38,3 +38,15 @@ p.add_run("This is a new run.")
 print(p.runs)
 p.runs[1].bold = True
 d.save("demo5.docx")
+
+# all the text in word document as a string
+def getText(filename):
+    doc = docx.Document(filename)
+    fullText = []
+    for para in doc.paragraphs:
+        fullText.append(para.text)  # list
+    return "\n".join(fullText)  # string
+
+
+print(getText("demo.docx"))  # pass the filename
+
